@@ -22,9 +22,9 @@ function App() {
   }
 
   const colums = [
-    {headerName: 'Date', field: 'date', sortable: true, filter: true},
-    {headerName: 'Description', field: 'desc', sortable: true, filter: true}, 
-    {headerName: 'Piority', field: 'priority', sortable: true, filter: true,
+    {headerName: 'Date', field: 'date', sortable: true, filter: true, floatingFilter: true},
+    {headerName: 'Description', field: 'desc', sortable: true, filter: true, floatingFilter: true}, 
+    {headerName: 'Piority', field: 'priority', sortable: true, filter: true, floatingFilter: true,
     cellStyle: params => params.value === "High" ? {color: 'red'} : {color: 'black'}}
   ]
 
@@ -62,7 +62,9 @@ function App() {
       onGridReady={params => gridRef.current = params.api}
       rowSelection="single"
       columnDefs={colums}
-      rowData={todos}>
+      rowData={todos}
+      animateRows={true}>
+        
       </AgGridReact> 
       </div>
     </div>
